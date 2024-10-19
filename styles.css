@@ -24,8 +24,8 @@ nav ul {
     padding: 0; /* 清除默认内边距 */
     margin: 0; /* 清除默认外边距 */
     display: flex; /* 使用弹性布局 */
-    flex-wrap: wrap; /* 允许换行 */
-    justify-content: center; /* 居中对齐 */
+    overflow-x: auto; /* 允许横向滚动 */
+    white-space: nowrap; /* 防止换行 */
 }
 
 nav ul li {
@@ -97,7 +97,7 @@ footer {
 /* 响应式设计 */
 @media (max-width: 768px) {
     nav ul {
-        justify-content: space-between; /* 大屏幕下的均匀分布 */
+        justify-content: flex-start; /* 左对齐 */
     }
 
     .feature {
@@ -107,12 +107,15 @@ footer {
 
 @media (max-width: 480px) {
     nav ul {
-        flex-direction: column; /* 小屏幕上纵向排列 */
-        align-items: center; /* 居中对齐 */
+        flex-direction: row; /* 横向排列 */
+        justify-content: flex-start; /* 左对齐 */
+        padding: 10px 0; /* 调整内边距 */
+        overflow-x: auto; /* 允许横向滚动 */
     }
 
     nav ul li {
-        margin-bottom: 10px; /* 列表项之间的间距 */
+        flex: 0 0 auto; /* 防止列表项缩放 */
+        margin-right: 20px; /* 增加列表项之间的间距 */
     }
 
     .feature-box {
