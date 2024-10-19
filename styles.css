@@ -20,17 +20,26 @@ header .logo img {
 }
 
 nav ul {
-    list-style-type: none;
+    list-style-type: none; /* 清除默认样式 */
+    padding: 0; /* 清除默认内边距 */
+    margin: 0; /* 清除默认外边距 */
+    display: flex; /* 使用弹性布局 */
+    flex-wrap: wrap; /* 允许换行 */
+    justify-content: center; /* 居中对齐 */
 }
 
 nav ul li {
-    display: inline;
-    margin: 0 15px;
+    margin: 0 15px; /* 列表项的水平间距 */
 }
 
 nav ul li a {
     color: #fff;
     text-decoration: none;
+    transition: color 0.3s; /* 添加过渡效果 */
+}
+
+nav ul li a:hover {
+    color: #ffcc00; /* 悬停时的颜色变化 */
 }
 
 .banner {
@@ -71,6 +80,11 @@ nav ul li a {
     padding: 20px;
     border-radius: 5px;
     margin: 10px; /* 添加间距 */
+    transition: transform 0.3s; /* 添加过渡效果 */
+}
+
+.feature:hover {
+    transform: translateY(-5px); /* 悬停时的动画效果 */
 }
 
 footer {
@@ -82,8 +96,8 @@ footer {
 
 /* 响应式设计 */
 @media (max-width: 768px) {
-    .feature-box {
-        flex-direction: row; /* 可能横向排列 */
+    nav ul {
+        justify-content: space-between; /* 大屏幕下的均匀分布 */
     }
 
     .feature {
@@ -92,6 +106,15 @@ footer {
 }
 
 @media (max-width: 480px) {
+    nav ul {
+        flex-direction: column; /* 小屏幕上纵向排列 */
+        align-items: center; /* 居中对齐 */
+    }
+
+    nav ul li {
+        margin-bottom: 10px; /* 列表项之间的间距 */
+    }
+
     .feature-box {
         flex-direction: column; /* 纵向排列 */
     }
